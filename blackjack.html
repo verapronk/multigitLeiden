@@ -3,10 +3,17 @@
 <head>
     <script>
         var dek = ["2", "3","4","5","6","7","8","9","10","Boer","Vrouw","Heer","Aas"]
+        var mijnHand = [];
+               
         function kiesRandomKaart(){
             var kaart = Math.floor(Math.random() * dek.length);
             console.log(dek[kaart])
-
+            hand();
+        }
+      
+        function hand(){
+            mijnHand.push(dek[9]);
+            alert(mijnHand);
         }
     </script>
 

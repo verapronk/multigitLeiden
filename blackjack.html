@@ -7,6 +7,22 @@
                
         function kiesRandomKaart(){
             var kaart = Math.floor(Math.random() * dek.length);
+            var KaartTwee = Math.floor(Math.random() * dek.length);
+            
+            hand1(dek[kaart]);
+            hand2(dek[KaartTwee]);
+        }
+      
+        function hand1(deKaart1){
+            console.log(deKaart1);
+            mijnHand.push(deKaart1);
+        }
+        function hand2(deKaart2){
+            console.log(deKaart2);
+            mijnHand.push(deKaart2);
+            
+            printHand(mijnHand);
+        }
             
             hand(dek[kaart]);
         }
@@ -27,7 +43,11 @@
     </script>
 
     <style>
+
         div{
+            font-family:'Verdana';
+            padding-top: 25px;
+            padding-left: 10px;
             margin-top: 25px;
             width: 400px;
             height: 300px;
@@ -40,6 +60,6 @@
 
 <body>
     <input type="button" id="toonkaarten" onclick="kiesRandomKaart()" value="toon kaarten">
-    <div id="deDiv"> <br> blackjaaaaack </div>
+    <div id="deDiv"> <br> Starten maar </div>
 </body>
 </html>

@@ -23,6 +23,17 @@
             
             printHand(mijnHand);
         }
+            
+            hand(dek[kaart]);
+        }
+      
+        function hand(deKaart){
+            console.log(deKaart);
+            mijnHand.push(deKaart);
+            
+            printHand(mijnHand);
+        }
+
         function printHand(deHand){
             console.log(deHand);
             var handDiv = document.getElementById("deDiv");

@@ -3,8 +3,10 @@
 <head>
     <script>
         var dek = ["2", "3","4","5","6","7","8","9","10","Boer","Vrouw","Heer","Aas"]
-        function start(){
-            console.log(dek);
+        function kiesRandomKaart(){
+            var kaart = Math.floor(Math.random() * dek.length);
+            console.log(dek[kaart])
+
         }
     </script>
 
@@ -17,7 +19,7 @@
 </head>
 
 <body>
-    <input type="button" id="toonkaarten" onclick="start()" value="toon kaarten">
+    <input type="button" id="toonkaarten" onclick="kiesRandomKaart()" value="toon kaarten">
     <div id="deDiv"> blackjaaaaack </div>
 </body>
 </html>

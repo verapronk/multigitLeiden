@@ -7,13 +7,22 @@
                
         function kiesRandomKaart(){
             var kaart = Math.floor(Math.random() * dek.length);
-            console.log(dek[kaart])
-            hand();
+            
+            hand(dek[kaart]);
         }
       
-        function hand(){
-            mijnHand.push(dek[9]);
-            alert(mijnHand);
+        function hand(deKaart){
+            console.log(deKaart);
+            mijnHand.push(deKaart);
+            
+            printHand(mijnHand);
+        }
+
+        function printHand(deHand){
+            console.log(deHand);
+            var handDiv = document.getElementById("deDiv");
+            handDiv.innerHTML = deHand;
+        
         }
     </script>
 

@@ -2,7 +2,9 @@
 
 <head>
     <script>
-        var dek = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]; // Vera: no strings
+        /* ====== Vera ====== */
+        var dek = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+        /* ====== Stop ====== */
         var mijnHand = [];
 
         // haal een random kaart uit de array dek, en geef mee aan functie hand()
@@ -21,14 +23,16 @@
             }
             return (y)
         } 
-        /* ====== Vera ====== */
+        /* ====== Stop ====== */
 
         // deKaart == random kaart. Push kaart naar array mijnHand[].
         // geef mijnHand[] mee aan functie printHand()
         function hand(deKaart) {
             console.log("kaart uit dek :" + deKaart);
             mijnHand.push(deKaart);
-            console.log(telWaarde(mijnHand)); // Vera
+            /* ====== Vera ====== */
+            console.log(telWaarde(mijnHand));
+            /* ====== Stop ====== */
             printHand(mijnHand);
         }
 

@@ -5,40 +5,44 @@
         var dek = ["2", "3","4","5","6","7","8","9","10","Boer","Vrouw","Heer","Aas"]
         var mijnHand = [];
                
+        // startHand() roept 2 keer de functie kiesRandomKaart() aan; de tweede keer 1 seconde vertraagd
+        function startHand(){
+            kiesRandomKaart();
+            setTimeout(kiesRandomKaart(), 1000)
+        }
+        
+        /* kiesRandomKaart() selecteert een random kaart uit de array dek
+        & geeft de waarde van variabele kaart uit array dek mee aan hand()
+        & geeft variabele kaart mee aan kaartUitDek()
+        */
         function kiesRandomKaart(){
             var kaart = Math.floor(Math.random() * dek.length);
-            var KaartTwee = Math.floor(Math.random() * dek.length);
-            
-            hand1(dek[kaart]);
-            hand2(dek[KaartTwee]);
-        }
-      
-        function hand1(deKaart1){
-            console.log(deKaart1);
-            mijnHand.push(deKaart1);
-        }
-        function hand2(deKaart2){
-            console.log(deKaart2);
-            mijnHand.push(deKaart2);
-            
-            printHand(mijnHand);
-        }
+            console.log(dek);
+            console.log(kaart);
             
             hand(dek[kaart]);
+            kaartUitDek(kaart);
         }
-      
+        
+        /* hand() pusht de meegekregen kaart in array mijnHand
+        & geeft array mijnHand mee aan printHand
+        */
         function hand(deKaart){
             console.log(deKaart);
             mijnHand.push(deKaart);
-            
-            printHand(mijnHand);
+        
+            printHand(mijnHand)
         }
-
+        // kaartUitDek() haalt de meegekregen kaart uit array dek
+        function kaartUitDek(deKaart){
+            console.log(deKaart);
+            dek.splice(deKaart, 1);
+        }
+        // printHand() print de meegekregen array mijnHand in de deDiv
         function printHand(deHand){
             console.log(deHand);
             var handDiv = document.getElementById("deDiv");
             handDiv.innerHTML = deHand;
-        
         }
     </script>
 
@@ -59,7 +63,8 @@
 </head>
 
 <body>
-    <input type="button" id="toonkaarten" onclick="kiesRandomKaart()" value="toon kaarten">
+    <input type="button" id="startspel" onclick="startHand()" value="Start spel">
+    <input type="button" id="geefkaart" onclick="kiesRandomKaart()" value="Geef kaart">
     <div id="deDiv"> <br> Starten maar </div>
 </body>
 </html>

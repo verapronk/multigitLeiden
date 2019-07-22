@@ -2,32 +2,46 @@
 
 <head>
     <script>
-        var dek = ["2", "3","4","5","6","7","8","9","10","Boer","Vrouw","Heer","Aas"]
+        var dek = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]; // Vera: no strings
         var mijnHand = [];
-               
-        function kiesRandomKaart(){
+
+        // haal een random kaart uit de array dek, en geef mee aan functie hand()
+        function kiesRandomKaart() {
             var kaart = Math.floor(Math.random() * dek.length);
-            
             hand(dek[kaart]);
         }
-      
-        function hand(deKaart){
-            console.log(deKaart);
+
+        /* ====== Vera ====== */
+        // een functie die de waarden van "een" array kan optellen
+        // telWaarde(mijnHand) -> geeft de waarde van y voor array mijnHand[];
+        function telWaarde(x) {
+            var y = 0
+            for (var i = 0; i < x.length; i++) {
+                y = y + x[i]
+            }
+            return (y)
+        } 
+        /* ====== Vera ====== */
+
+        // deKaart == random kaart. Push kaart naar array mijnHand[].
+        // geef mijnHand[] mee aan functie printHand()
+        function hand(deKaart) {
+            console.log("kaart uit dek :" + deKaart);
             mijnHand.push(deKaart);
-            
+            console.log(telWaarde(mijnHand)); // Vera
             printHand(mijnHand);
         }
 
-        function printHand(deHand){
-            console.log(deHand);
+        // print mijnHand[] in de div
+        function printHand(deHand) {
+            console.log("kaarten in hand :" + deHand);
             var handDiv = document.getElementById("deDiv");
             handDiv.innerHTML = deHand;
-        
         }
     </script>
 
     <style>
-        div{
+        div {
             margin-top: 25px;
             width: 400px;
             height: 300px;
@@ -42,4 +56,5 @@
     <input type="button" id="toonkaarten" onclick="kiesRandomKaart()" value="toon kaarten">
     <div id="deDiv"> <br> blackjaaaaack </div>
 </body>
+
 </html>

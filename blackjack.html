@@ -2,18 +2,27 @@
 
 <head>
     <script>
-        /* ====== Vera ====== */
         var dek = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
-        /* ====== Stop ====== */
         var mijnHand = [];
 
-        // haal een random kaart uit de array dek, en geef mee aan functie hand()
-        function kiesRandomKaart() {
-            var kaart = Math.floor(Math.random() * dek.length);
-            hand(dek[kaart]);
+        // startHand() roept 2 keer de functie kiesRandomKaart() aan; de tweede keer 1 seconde vertraagd
+        function startHand(){
+            kiesRandomKaart();
+            setTimeout(kiesRandomKaart(), 1000)
         }
-
-        /* ====== Vera ====== */
+        
+        /* kiesRandomKaart() selecteert een random kaart uit de array dek
+        & geeft de waarde van variabele kaart uit array dek mee aan hand()
+        & geeft variabele kaart mee aan kaartUitDek()
+        */
+        function kiesRandomKaart(){
+            var kaart = Math.floor(Math.random() * dek.length);
+            console.log(dek);
+            console.log(kaart);
+            hand(dek[kaart]);
+            kaartUitDek(kaart);
+        }
+      
         // een functie die de waarden van "een" array kan optellen
         // telWaarde(mijnHand) -> geeft de waarde van y voor array mijnHand[];
         function telWaarde(x) {
@@ -23,16 +32,13 @@
             }
             return (y)
         } 
-        /* ====== Stop ====== */
 
         // deKaart == random kaart. Push kaart naar array mijnHand[].
         // geef mijnHand[] mee aan functie printHand()
         function hand(deKaart) {
             console.log("kaart uit dek :" + deKaart);
             mijnHand.push(deKaart);
-            /* ====== Vera ====== */
             console.log(telWaarde(mijnHand));
-            /* ====== Stop ====== */
             printHand(mijnHand);
         }
 
@@ -42,10 +48,21 @@
             var handDiv = document.getElementById("deDiv");
             handDiv.innerHTML = deHand;
         }
+        
+        // kaartUitDek() haalt de meegekregen kaart uit array dek
+        function kaartUitDek(deKaart){
+            console.log(deKaart);
+            dek.splice(deKaart, 1);
+        }
     </script>
 
     <style>
-        div {
+
+
+        div{
+            font-family:'Verdana';
+            padding-top: 25px;
+            padding-left: 10px;
             margin-top: 25px;
             width: 400px;
             height: 300px;
@@ -57,8 +74,9 @@
 </head>
 
 <body>
-    <input type="button" id="toonkaarten" onclick="kiesRandomKaart()" value="toon kaarten">
-    <div id="deDiv"> <br> blackjaaaaack </div>
+    <input type="button" id="startspel" onclick="startHand()" value="Start spel">
+    <input type="button" id="geefkaart" onclick="kiesRandomKaart()" value="Geef kaart">
+    <div id="deDiv"> <br> Starten maar </div>
 </body>
 
 </html>

@@ -3,29 +3,29 @@
 <head>
     <script>
         var dek = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11,
-                   2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11,
-                   2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11,
-                   2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]; // 4x de basis array kaarten om de 4 kleuren sets weer te geven.
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]; // 4x de basis array kaarten om de 4 kleuren sets weer te geven.
         var mijnHand = [];
 
         // startHand() roept 2 keer de functie kiesRandomKaart() aan; de tweede keer 1 seconde vertraagd
-        function startHand(){
+        function startHand() {
             kiesRandomKaart();
             setTimeout(kiesRandomKaart(), 1000)
         }
-        
+
         /* kiesRandomKaart() selecteert een random kaart uit de array dek
         & geeft de waarde van variabele kaart uit array dek mee aan hand()
         & geeft variabele kaart mee aan kaartUitDek()
         */
-        function kiesRandomKaart(){
+        function kiesRandomKaart() {
             var kaart = Math.floor(Math.random() * dek.length);
             console.log(dek);
             console.log(kaart);
             hand(dek[kaart]);
             kaartUitDek(kaart);
         }
-      
+
         // een functie die de waarden van "een" array kan optellen
         // telWaarde(mijnHand) -> geeft de waarde van y voor array mijnHand[];
         function telWaarde(x) {
@@ -34,7 +34,7 @@
                 y = y + x[i]
             }
             return (y)
-        } 
+        }
 
         // deKaart == random kaart. Push kaart naar array mijnHand[].
         // geef mijnHand[] mee aan functie printHand()
@@ -43,6 +43,19 @@
             mijnHand.push(deKaart);
             console.log(telWaarde(mijnHand));
             printHand(mijnHand);
+
+            if (telWaarde(mijnHand) == 21) {
+                setTimeout(function () {
+                    alert("BLACKJAAAAAACK!")
+                }, 1);
+            }
+            if (telWaarde(mijnHand) > 21) {
+                setTimeout(function () {
+                    alert("U DED!")
+                }, 1);
+            }
+
+
         }
 
         // print mijnHand[] in de div
@@ -51,19 +64,18 @@
             var handDiv = document.getElementById("deDiv");
             handDiv.innerHTML = deHand;
         }
-        
+
+
         // kaartUitDek() haalt de meegekregen kaart uit array dek
-        function kaartUitDek(deKaart){
+        function kaartUitDek(deKaart) {
             console.log(deKaart);
             dek.splice(deKaart, 1);
         }
     </script>
 
     <style>
-
-
-        div{
-            font-family:'Verdana';
+        div {
+            font-family: 'Verdana';
             padding-top: 25px;
             padding-left: 10px;
             margin-top: 25px;
